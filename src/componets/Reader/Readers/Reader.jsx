@@ -3,23 +3,20 @@ import Publication from "../Publication/Publication";
 import Controls from "../Controls/Controls";
 import Counter from "../Counter/Counter";
 import propTypes from "prop-types";
-import queryString from "query-string";
+// import queryString from "query-string";
 import styles from "../../../common/css/Reader.module.css";
 class Reader extends Component {
   state = {};
   pubLength = this.props.publications.length;
-
-  pars =
-    +!queryString.parse(this.props.routProps.location.search).item ||
-    +queryString.parse(this.props.routProps.location.search).item;
+  pars = +!this.props.pars || this.props.pars
   handleClick = ({ target: { name } }) => {
-    this.currentIdex = this.pars =
-      name === "next" ? this.pars + 1 : this.pars - 1;
+    this.pars = name === "next" ? this.pars + 1 : this.pars - 1;
   };
 
   render() {
     const { id, title, text } = this.props.publications[this.pars - 1];
     const { path } = this.props.routProps.match;
+    console.log(this.props.pars);
     return (
       <div className={styles.reader}>
         <Controls

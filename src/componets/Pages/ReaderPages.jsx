@@ -6,9 +6,8 @@ import queryString from "query-string";
 
 const ReaderPages = props => {
   const pars = +queryString.parse(props.location.search).item;
-  console.log(isNaN(pars));
   return (publications.length >= pars && pars !== 0) || isNaN(pars) ? (
-    <Reader publications={publications} routProps={props} />
+    <Reader publications={publications} routProps={props} pars={pars} />
   ) : (
     <Route>
       <Redirect to="/reader?item=1" />
