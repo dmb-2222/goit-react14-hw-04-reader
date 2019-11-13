@@ -1,6 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
-import styles from '../../../common/css/Reader.module.css'
+import styles from './Controls.module.css'
 import { Link, withRouter } from "react-router-dom";
 
 const Controls = ({

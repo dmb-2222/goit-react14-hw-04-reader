@@ -4,7 +4,7 @@ import Controls from "../Controls/Controls";
 import Counter from "../Counter/Counter";
 import propTypes from "prop-types";
 // import queryString from "query-string";
-import styles from "../../../common/css/Reader.module.css";
+import styles from "./Reader.module.css";
 class Reader extends Component {
   state = {};
   pubLength = this.props.publications.length;
@@ -16,7 +16,6 @@ class Reader extends Component {
   render() {
     const { id, title, text } = this.props.publications[this.pars - 1];
     const { path } = this.props.routProps.match;
-    console.log(this.props.pars);
     return (
       <div className={styles.reader}>
         <Controls
