@@ -8,20 +8,20 @@ import styles from "./Reader.module.css";
 class Reader extends Component {
   state = {};
   pubLength = this.props.publications.length;
-  pars = +!this.props.pars || this.props.pars;
 
   handleClick = ({ target: { name } }) => {
     this.pars = name === "next" ? this.pars + 1 : this.pars - 1;
   };
 
   render() {
-    const { id, title, text } = this.props.publications[this.pars - 1];
+    const {pars} = this.props
+    const { id, title, text } = this.props.publications[pars - 1];
     const { path } = this.props.routProps.match;
     return (
       <div className={styles.reader}>
         <Controls
           handleClick={this.handleClick}
-          currentPage={this.pars}
+          currentPage={pars}
           pubLength={this.pubLength}
           category={path}
         />
@@ -29,11 +29,11 @@ class Reader extends Component {
           id={id}
           title={title}
           text={text}
-          currentPage={this.pars}
+          currentPage={pars}
         />
         <Counter
           publicationsLength={this.props.publications.length}
-          currentPage={this.pars}
+          currentPage={pars}
         />
       </div>
     );

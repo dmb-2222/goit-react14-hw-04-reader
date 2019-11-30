@@ -9,7 +9,7 @@ const App = () => (
       <ReaderPages />
     </Route>
     <Route>
-      <Redirect to={{ pathname: '/reader', search: '?page=1' }}/>
+      <Redirect to={{ pathname: '/reader', search: '?item=1' }}/>
     </Route>
   </Switch>
 );
